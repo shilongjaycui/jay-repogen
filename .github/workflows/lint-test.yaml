@@ -44,8 +44,8 @@ jobs:
           python-version: 3.8
       - name: Configure git CLI
         run: |
-          git config --global user.email "username@gmail.com"
-          git config --global user.name "username"
+          git config --global user.email "jay-bot@jay-repogen.com"
+          git config --global user.name "jay-bot"
       - name: Install test dependencies
         run: |
           make install
