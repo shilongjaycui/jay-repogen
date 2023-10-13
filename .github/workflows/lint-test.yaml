@@ -27,9 +27,9 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
-      - name: Install pre-commit
+      - name: Install lint dependencies
         run: |
-          pip install pre-commit
+          make install
       - name: Lint, Format, and other static code quality checks
         run: |
           make lint-ci
@@ -44,7 +44,20 @@ jobs:
           python-version: 3.8
       - name: Install test dependencies
         run: |
-          pip install pytest cookiecutter
+          make install
       - name: Execute tests against the installed package
         run: |
           make test
+
+  push-tags:
+    needs:
+      - execute-tests
+      - lint-format-and-static-code-checks
+      - check-version-txt
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Push tags
+        run: |
+          git push origin --tags
