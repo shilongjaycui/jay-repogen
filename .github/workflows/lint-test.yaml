@@ -32,7 +32,7 @@ jobs:
           pip install pre-commit
       - name: Lint, Format, and other static code quality checks
         run: |
-          /bin/bash -x run.sh lint:ci
+          make lint-ci
 
   execute-tests:
     runs-on: ubuntu-latest
@@ -47,4 +47,4 @@ jobs:
           pip install pytest
       - name: Execute tests against the installed package
         run: |
-          /bin/bash -x run.sh test:ci
+          make test
