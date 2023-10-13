@@ -1,3 +1,5 @@
+"""Fixture that uses the cookiecutter to generate a temporary repo."""
+
 import shutil
 import subprocess
 from pathlib import Path
@@ -14,6 +16,16 @@ from tests.utils.project import (
 
 @pytest.fixture(scope="session")
 def project_dir() -> Path:
+    """
+    Fixture that uses the cookiecutter to generate a temporary repo.
+
+    Returns:
+        Path: Path of the generated temporary repo.
+
+    Yields:
+        Iterator[Path]: Path of the generated temporary repo.
+
+    """
     test_session_id: str = generate_test_session_id()
     template_values = {
         "repo_name": f"test-repo-{test_session_id}",
@@ -36,5 +48,12 @@ def project_dir() -> Path:
 
 
 def generate_test_session_id() -> str:
+    """
+    Generate a unique ID for the test session.
+
+    Returns:
+        str: The unique test session ID.
+
+    """
     test_session_id: str = str(uuid4())[:6]
     return test_session_id
