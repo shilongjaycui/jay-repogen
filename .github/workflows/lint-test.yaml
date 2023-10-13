@@ -44,7 +44,7 @@ jobs:
           python-version: 3.8
       - name: Install test dependencies
         run: |
-          pip install pytest
+          pip install pytest cookiecutter
       - name: Execute tests against the installed package
         run: |
           make test
