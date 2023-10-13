@@ -2,14 +2,23 @@ name: Lint and Test
 
 on:
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize]
   push:
     branches:
       - main
   workflow_dispatch:
 
 jobs:
+  check-version-txt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Tag with the release version
+        run: |
+          git tag $(cat version.txt)
+
   lint-format-and-static-code-checks:
     runs-on: ubuntu-latest
     steps:
@@ -35,7 +44,7 @@ jobs:
           python-version: 3.8
       - name: Install test dependencies
         run: |
-          pip install pytest pytest-cov
+          pip install pytest
       - name: Execute tests against the installed package
         run: |
           /bin/bash -x run.sh test:ci

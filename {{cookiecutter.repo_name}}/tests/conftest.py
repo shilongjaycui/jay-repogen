@@ -1,3 +1,5 @@
+"""Path hacking as well as specifying fixture location(s)."""
+
 import sys
 from pathlib import Path
 

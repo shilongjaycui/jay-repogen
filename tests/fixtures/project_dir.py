@@ -5,6 +5,7 @@ from uuid import uuid4
 
 import pytest
 
+from tests.consts import PROJECT_DIR
 from tests.utils.project import (
     generate_project,
     initialize_git_repo,
@@ -13,7 +14,7 @@ from tests.utils.project import (
 
 @pytest.fixture(scope="session")
 def project_dir() -> Path:
-    test_session_id: str = generate_test_sesion_id()
+    test_session_id: str = generate_test_session_id()
     template_values = {
         "repo_name": f"test-repo-{test_session_id}",
     }
@@ -26,9 +27,14 @@ def project_dir() -> Path:
         subprocess.run(["make", "lint-ci"], cwd=generated_repo_dir, check=False)
         yield generated_repo_dir
     finally:
+        subprocess.run(
+            ["rm", f"cookiecutter-{test_session_id}.json"],
+            cwd=PROJECT_DIR,
+            check=True,
+        )
         shutil.rmtree(path=generated_repo_dir)
 
 
-def generate_test_sesion_id() -> str:
+def generate_test_session_id() -> str:
     test_session_id: str = str(uuid4())[:6]
     return test_session_id
