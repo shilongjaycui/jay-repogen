@@ -155,7 +155,7 @@ function open-pr-with-generated-project {
     mv "$REPO_NAME/.git" "./$REPO_NAME.git.bak"
     rm -rf "$REPO_NAME"
     mkdir "$REPO_NAME"
-    mv "./$REPO_NAME.git.bak" "$REPO_NAME/.git" 
+    mv "./$REPO_NAME.git.bak" "$REPO_NAME/.git"
 
     # Generate the project into the repository's folder.
     OUTDIR="./outdir/"
