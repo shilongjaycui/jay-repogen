@@ -1,0 +1,59 @@
+name: Create or Update Repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: "name of the repository"
+        required: true
+        type: string
+      is_public_repo:
+        description: "if true, the repository will be public, otherwise private"
+        required: true
+        default: true
+        type: boolean
+      package_import_name:
+        description: "name of the package inside the repository"
+        required: true
+        type: string
+
+jobs:
+  create-repo-if-not-exists:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - env:
+          REPO_NAME: ${{ github.event.inputs.repo_name }}
+          GITHUB_USERNAME: shilongjaycui
+          IS_PUBLIC_REPO: ${{ github.event.inputs.is_public_repo }}
+        run: |
+          bash run.sh create-repo-if-not-exists
+  configure-repo:
+    needs: [create-repo-if-not-exists]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - env:
+          TEST_PYPI_TOKEN: ${{ secrets.TEST_PYPI_TOKEN }}
+          PROD_PYPI_TOKEN: ${{ secrets.PROD_PYPI_TOKEN }}
+          REPO_NAME: ${{ github.event.inputs.repo_name }}
+          GITHUB_USERNAME: shilongjaycui
+        run: |
+          bash run.sh configure-repo
+  open-pr-with-generated-project:
+    needs: [create-repo-if-not-exists]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - env:
+          REPO_NAME: ${{ github.event.inputs.repo_name }}
+          GITHUB_USERNAME: shilongjaycui
+          PACKAGE_IMPORT_NAME: ${{ github.event.inputs.package_import_name }}
+        run: |
+          bash run.sh open-pr-with-generated-project

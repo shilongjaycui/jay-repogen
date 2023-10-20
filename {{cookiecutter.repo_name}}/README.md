@@ -1,13 +1,13 @@
-# python-course-package
+# {{cookiecutter.package_name}}
 
 ## Quick start
 
 ```bash
-pip install python-course-package
+pip install {{cookiecutter.package_name}}
 ```
 
 ```python
-from example_pkg import ...
+from {{cookiecutter.package_name}} import ...
 ```
 
 ## Contributing
