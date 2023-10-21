@@ -18,7 +18,7 @@ on:
         type: string
 
 env:
-  GITHUB_TOKEN: ${{ secrets.JAY_REPOGEN_GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.JAY_REPOGEN_GITHUB_TOKEN }}
 
 jobs:
   create-repo-if-not-exists:
