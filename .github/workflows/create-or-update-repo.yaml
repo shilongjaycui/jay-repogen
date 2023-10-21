@@ -17,6 +17,9 @@ on:
         required: true
         type: string
 
+env:
+  GITHUB_TOKEN: ${{ secrets.JAY_REPOGEN_GITHUB_TOKEN }}
+
 jobs:
   create-repo-if-not-exists:
     runs-on: ubuntu-latest
