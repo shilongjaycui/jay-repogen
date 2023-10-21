@@ -111,6 +111,17 @@ function push-initial-readme-to-repo {
     git push origin main
 }
 
+function create-sample-repo {
+    git add .github/
+    git commit -m "Debugged workflow"
+    git push origin main
+
+    gh workflow run .github/workflows/create-or-update-repo.yaml \
+        -f repo_name=generated-repository \
+        -f package_import_name=generated_package \
+        --ref main
+}
+
 # args:
 #    TEST_PYPI_TOKEN, PROD_PYPI_TOKEN - auth token for test & prod PyPI
 #    REPO_NAME - name of the repository
