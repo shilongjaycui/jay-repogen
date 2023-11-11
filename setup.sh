@@ -41,7 +41,7 @@ function lint:ci {
 }
 
 # Run unit tests and functional tests.
-function run-tests {
+function test {
     python -m pytest ${@:-"$THIS_DIR/tests/"}
 }
 

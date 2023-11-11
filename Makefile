@@ -11,7 +11,7 @@ lint-ci:
 	bash setup.sh lint:ci
 
 test:
-	bash setup.sh run-tests
+	bash setup.sh test
 
 clean:
 	bash setup.sh clean
