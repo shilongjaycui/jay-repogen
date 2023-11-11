@@ -3,10 +3,6 @@ You generated this repo using `jay-repogen`.
 
 ## Quick Start
 
-```bash
-pip install {{cookiecutter.package_name}}
-```
-
 Clone the repo in your terminal:
 ```bash
 git clone git@github.com:shilongjaycui/{{cookiecutter.repo_name}}.git
