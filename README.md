@@ -11,7 +11,7 @@ why
 - Why did I build this project?
 - What problem does it solve?
 - Why did I use the technologies I used?
-  
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
