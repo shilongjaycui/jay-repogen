@@ -1,48 +1,23 @@
-# Execute the "targets" in this file with `make <target>` e.g., `make test`.
-#
-# You can also run multiple in sequence, e.g. `make clean lint test serve-coverage-report`
-
-build:
-	bash run.sh build
-
-clean:
-	bash run.sh clean
-
-help:
-	bash run.sh help
-
 install:
-	bash run.sh install
+	bash setup.sh install
 
 lint:
-	bash run.sh lint
+	bash setup.sh lint
 
 lint-ci:
-	bash run.sh lint:ci
-
-publish-prod:
-	bash run.sh publish:prod
-
-publish-test:
-	bash run.sh publish:test
-
-release-prod:
-	bash run.sh release:prod
-
-release-test:
-	bash run.sh release:test
-
-serve-coverage-report:
-	bash run.sh serve-coverage-report
+	bash setup.sh lint:ci
 
 test-ci:
-	bash run.sh test:ci
-
-test-quick:
-	bash run.sh test:quick
+	bash setup.sh test:ci
 
 test:
-	bash run.sh run-tests
+	bash setup.sh run-tests
 
 test-wheel-locally:
-	bash run.sh test:wheel-locally
+	bash setup.sh test:wheel-locally
+
+build:
+	bash setup.sh build
+
+clean:
+	bash setup.sh clean

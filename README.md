@@ -31,7 +31,6 @@ In my opinion, the biggest value this project template creates is that it <font 
 ## Installation
 
 Clone the repo in your terminal:
-
 ```bash
 git clone git@github.com:shilongjaycui/jay-repogen.git
 ```
@@ -43,7 +42,7 @@ Move into the repo folder:
 cd jay-repogen
 ```
 
-Create and activate virtual environment:
+Create and activate a virtual environment:
 ```bash
 python -m venv venv
 ```
