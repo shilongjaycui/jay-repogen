@@ -1,11 +1,13 @@
 # `jay-repogen`
+
 A project template that generates boilerplate Python projects for you.
 
 ## Description
 
 In my opinion, the biggest value this project template creates is that it <font color="green">**enables you to validate your business ideas very quickly by freeing you up from ever having to set up experiments/[POC](https://en.wikipedia.org/wiki/Proof_of_concept)s from scratch**</font>.
 
-### what
+### What
+
 - **What was my motivation for building this project?** To solidify my learnings from a Udemy course, [Taking Python to Production: A Professional Onboarding Guide](https://www.udemy.com/course/setting-up-the-linux-terminal-for-software-development/).
 - **What did I learn?**
   - How to configure Z shell
@@ -23,7 +25,8 @@ In my opinion, the biggest value this project template creates is that it <font 
   - a data pipeline
   - a machine learning model
 
-### why
+### Why
+
 - **Why did I build this project?** Just so I don't have to set up Python projects from scratch ever again.
 - **What problem does it solve?** It saves you the manual labor of setting up Python projects from scratch.
 - **Why did I use the technologies I used?** Because I just learned about them in the aforementioned [Udemy course](https://www.udemy.com/course/setting-up-the-linux-terminal-for-software-development/).
@@ -31,6 +34,7 @@ In my opinion, the biggest value this project template creates is that it <font 
 ## Installation
 
 Clone the repo in your terminal:
+
 ```bash
 git clone git@github.com:shilongjaycui/jay-repogen.git
 ```
@@ -38,32 +42,39 @@ git clone git@github.com:shilongjaycui/jay-repogen.git
 ## Usage
 
 Move into the repo folder:
+
 ```bash
 cd jay-repogen
 ```
 
 Create and activate a virtual environment:
+
 ```bash
 python -m venv venv
 ```
+
 ```bash
 source venv/bin/activate
 ```
 
 Install dependencies:
+
 ```bash
 make install
 ```
 
 (optional) Make sure the repo isn't broken:
+
 ```bash
 make lint
 ```
+
 ```bash
 make test
 ```
 
 Generate your boilderplate Python project.
+
 ```bash
 make generate-project
 ```
@@ -71,4 +82,5 @@ make generate-project
 Now that you have your project generated in the `/sample` folder, feel free to move it somewhere else and start playing around with it.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
